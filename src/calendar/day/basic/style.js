@@ -1,23 +1,25 @@
-import {StyleSheet, Platform} from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 import * as defaultStyle from '../../../style';
 
 const STYLESHEET_ID = 'stylesheet.day.basic';
 
 export default function styleConstructor(theme = {}) {
-  const appStyle = {...defaultStyle, ...theme};
+  const appStyle = { ...defaultStyle, ...theme };
   return StyleSheet.create({
     container: {
       alignSelf: 'stretch',
       alignItems: 'center'
     },
     base: {
-      width: 32,
-      height: 32,
-      alignItems: 'center'
+      width: RFValue(32),
+      height: RFValue(32),
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     text: {
       marginTop: Platform.OS === 'android' ? 4 : 6,
-      fontSize: appStyle.textDayFontSize,
+      fontSize: RFValue(16),
       fontFamily: appStyle.textDayFontFamily,
       fontWeight: appStyle.textDayFontWeight,
       color: appStyle.dayTextColor,
@@ -29,11 +31,15 @@ export default function styleConstructor(theme = {}) {
     },
     selected: {
       backgroundColor: appStyle.selectedDayBackgroundColor,
-      borderRadius: 16
+      borderRadius: RFValue(16),
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     today: {
       backgroundColor: appStyle.todayBackgroundColor,
-      borderRadius: 16
+      borderRadius: RFValue(16),
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     todayText: {
       color: appStyle.todayTextColor

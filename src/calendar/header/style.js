@@ -1,10 +1,11 @@
-import {StyleSheet, Platform} from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 import * as defaultStyle from '../../style';
 
 const STYLESHEET_ID = 'stylesheet.calendar.header';
 
 export default function (theme = {}) {
-  const appStyle = {...defaultStyle, ...theme};
+  const appStyle = { ...defaultStyle, ...theme };
   return StyleSheet.create({
     header: {
       flexDirection: 'row',
@@ -18,7 +19,7 @@ export default function (theme = {}) {
       flexDirection: 'row'
     },
     monthText: {
-      fontSize: appStyle.textMonthFontSize,
+      fontSize: RFValue(16),
       fontFamily: appStyle.textMonthFontFamily,
       fontWeight: appStyle.textMonthFontWeight,
       color: appStyle.monthTextColor,
@@ -50,7 +51,7 @@ export default function (theme = {}) {
       marginBottom: 7,
       width: 32,
       textAlign: 'center',
-      fontSize: appStyle.textDayHeaderFontSize,
+      fontSize: RFValue(11),
       fontFamily: appStyle.textDayHeaderFontFamily,
       fontWeight: appStyle.textDayHeaderFontWeight,
       color: appStyle.textSectionTitleColor
